@@ -33,6 +33,7 @@ public class Motor {
                     System.out.println("Tipo de regla: AND");
                             cumple = true;
                     for(Predicado p : regla.getIfPredicados()) {
+                        System.out.println("Predicado: " + p + " vs. Hechos: " + hechos);
                         if(!hechos.contains(p)) {
                             cumple = false;
                             System.out.println("No se encontró el predicado: " + p);
@@ -50,6 +51,7 @@ public class Motor {
                         }
                     }
                 }
+                // Se evalua el predicado de la parte THEN
                 if(cumple && !hechos.contains(regla.getThenPredicado())) {
                     System.out.println(" -> Se agrega hecho: " + regla.getThenPredicado());
                             agregarHecho(regla.getThenPredicado());

@@ -31,14 +31,19 @@ public class Predicado {
         this.nombre = nombre;
     }
 
-    //public ArrayList<String> getVariables() {
-    //return variables;
-    //}
 
-    //public void setVariables(ArrayList<String> variables) {
-    //this.variables = variables;
-    //}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Predicado other = (Predicado) obj;
+        return negado == other.negado && nombre.equals(other.nombre);
+    }
 
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(negado, nombre);
+    }
 
     @Override
     public String toString() {
